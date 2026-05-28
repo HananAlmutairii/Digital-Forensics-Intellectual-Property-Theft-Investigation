@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Forensics — Intellectual Property Theft Investigation</title>
+<link rel="stylesheet" href="https://unpkg.com/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #fff; color: #111; padding: 2.5rem 1.5rem; }
+.portfolio { max-width: 720px; margin: 0 auto; }
+.hero { margin-bottom: 2rem; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.tag { font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+.tag-blue { background: #E6F1FB; color: #0C447C; }
+.tag-teal { background: #E1F5EE; color: #085041; }
+.tag-amber { background: #FAEEDA; color: #633806; }
+.tag-purple { background: #EEEDFE; color: #3C3489; }
+h1 { font-size: 24px; font-weight: 600; color: #111; }
+.subtitle { font-size: 14px; color: #555; margin-top: 8px; line-height: 1.7; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #999; text-transform: uppercase; margin-bottom: 12px; margin-top: 2rem; }
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 600px) { .metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+.metric-card { background: #f7f7f5; border-radius: 8px; padding: 14px 12px; }
+.metric-label { font-size: 12px; color: #777; margin-bottom: 6px; }
+.metric-value { font-size: 22px; font-weight: 600; color: #111; }
+.metric-sub { font-size: 11px; color: #aaa; margin-top: 3px; }
+.findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 600px) { .findings-grid { grid-template-columns: 1fr; } }
+.finding-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 1rem 1.125rem; }
+.finding-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+.finding-title { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 6px; }
+.finding-detail { font-size: 12px; color: #666; line-height: 1.6; }
+.evidence-row { display: flex; flex-direction: column; gap: 8px; }
+.evidence-item { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px 14px; }
+.evidence-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.evidence-label { font-size: 13px; font-weight: 600; color: #111; }
+.evidence-desc { font-size: 12px; color: #777; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+@media (max-width: 600px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+.skill-chip { background: #f7f7f5; border-radius: 8px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; }
+.skill-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.skill-text { font-size: 12px; color: #111; font-weight: 500; }
+.tl-item { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+.tl-item:last-child { border-bottom: none; }
+.tl-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 4px; gap: 4px; }
+.tl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.tl-time { font-size: 11px; color: #aaa; white-space: nowrap; }
+.tl-content { font-size: 12px; color: #666; line-height: 1.5; }
+.tl-event { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 2px; }
+.tl-cat { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px; display: inline-block; margin-bottom: 4px; }
+.cat-fs { background: #E6F1FB; color: #185FA5; }
+.cat-net { background: #E1F5EE; color: #0F6E56; }
+.cat-meta { background: #EEEDFE; color: #534AB7; }
+.correlation-box { background: #fff; border: 1px solid #eee; border-left: 2px solid #1D9E75; border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; }
+.corr-title { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 4px; }
+.corr-detail { font-size: 12px; color: #666; line-height: 1.5; }
+.tools-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.tool-badge { display: flex; align-items: center; gap: 6px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #111; font-weight: 500; }
+.divider { border: none; border-top: 1px solid #f0f0f0; margin: 2rem 0; }
+</style>
+</head>
+<body>
+<div class="portfolio">
+
+  <div class="hero">
+    <div class="tag-row">
+      <span class="tag tag-blue">Digital Forensics</span>
+      <span class="tag tag-teal">Network Analysis</span>
+      <span class="tag tag-amber">Registry Analysis</span>
+      <span class="tag tag-purple">Metadata Correlation</span>
+    </div>
+    <h1>Digital Forensics — Intellectual Property Theft Investigation</h1>
+    <p class="subtitle">Examined a forensic disk image, PCAP traffic, registry hive, and mobile device metadata to reconstruct user activity, identify data exfiltration patterns, and establish a multi-source evidence chain in a simulated intellectual property theft case.</p>
+  </div>
+
+  <p class="section-label">Case metrics</p>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-label">Evidence sources</div>
+      <div class="metric-value">4</div>
+      <div class="metric-sub">Disk · PCAP · Registry · Mobile</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">TCP streams analysed</div>
+      <div class="metric-value">5</div>
+      <div class="metric-sub">Port 4444 traffic</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Artefact types found</div>
+      <div class="metric-value">8+</div>
+      <div class="metric-sub">Across all sources</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Activity window</div>
+      <div class="metric-value">~1hr</div>
+      <div class="metric-sub">04 Mar 2026</div>
+    </div>
+  </div>
+
+  <p class="section-label">Key findings</p>
+  <div class="findings-grid">
+    <div class="finding-card">
+      <div class="finding-icon" style="background:#E1F5EE;">
+        <i class="ti ti-network" style="font-size:16px; color:#085041;"></i>
+      </div>
+      <div class="finding-title">Data exfiltration via TCP</div>
+      <div class="finding-detail">ZIP archive containing RobotNavigation-master project transmitted over port 4444. PNG route map and plaintext password identified in separate streams.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-icon" style="background:#FAEEDA;">
+        <i class="ti ti-file-unknown" style="font-size:16px; color:#633806;"></i>
+      </div>
+      <div class="finding-title">Extension mismatch obfuscation</div>
+      <div class="finding-detail">JPEG images stored under .pdf, .doc, .!! and irregular extensions in a dedicated user directory to evade detection. Hidden file "secret.png" also recovered.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-icon" style="background:#EEEDFE;">
+        <i class="ti ti-database" style="font-size:16px; color:#3C3489;"></i>
+      </div>
+      <div class="finding-title">Registry activity reconstruction</div>
+      <div class="finding-detail">WordWheelQuery: search terms included "robot", "cardiff robot". UserAssist: EXCEL.EXE executed 5 times. TypedURLs: direct access to suspicious IP 131.10.28.251:53.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-icon" style="background:#E6F1FB;">
+        <i class="ti ti-camera" style="font-size:16px; color:#0C447C;"></i>
+      </div>
+      <div class="finding-title">EXIF metadata — device match</div>
+      <div class="finding-detail">Robot arm photographs linked to HUAWEI HLK-AL00 (seized device, Exhibit D) via EXIF device model. GPS coordinates placed in Cardiff, UK. Second unidentified device also noted.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-icon" style="background:#FAECE7;">
+        <i class="ti ti-users" style="font-size:16px; color:#993C1D;"></i>
+      </div>
+      <div class="finding-title">Potential accomplice indicators</div>
+      <div class="finding-detail">Email attachment from developer@robotnav.com found stored locally as password-protected "Very Useful.xlsx". Password transmitted in plaintext over TCP stream 3, suggesting coordinated activity involving another party.</div>
+    </div>
+    <div class="finding-card">
+      <div class="finding-icon" style="background:#EAF3DE;">
+        <i class="ti ti-map-pin" style="font-size:16px; color:#27500A;"></i>
+      </div>
+      <div class="finding-title">Travel intent artefact</div>
+      <div class="finding-detail">Route map (UK → Hawaii) found in a non-standard system path, then transmitted via TCP stream 1 — indicating prior staging. Concealment location and network transmission together suggest active planning.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Evidence correlation — investigator mindset</p>
+  <div class="correlation-box">
+    <div class="corr-title">Disk artefacts ↔ PCAP traffic — data staging reconstruction</div>
+    <div class="corr-detail">Strings extracted from a deleted RegistryExplorer.zip revealed file paths matching the exact directory structure of the RobotNavigation-master project (Astar/, RRT/, Images/, nav_createMap.m). The same structure was independently recovered from TCP stream 2 as a live ZIP archive — indicating that the project archive existed locally and was staged before external transmission over the network.</div>
+  </div>
+  <div class="correlation-box">
+    <div class="corr-title">Network timing ↔ filesystem timestamps</div>
+    <div class="corr-detail">ROBTYPE file creation (20:45–20:46), Astar.png (20:58), and map.png (20:59) timestamps align with TCP stream activity on 04/03/2026 — establishing a compressed exfiltration window.</div>
+  </div>
+  <div class="correlation-box">
+    <div class="corr-title">EXIF metadata ↔ seized mobile device</div>
+    <div class="corr-detail">HUAWEI HLK-AL00 device model in ROBTYPE image EXIF data matches Exhibit D hardware. GPS coordinates (51.5013, −2.5513) place capture location in Cardiff, UK.</div>
+  </div>
+  <div class="correlation-box">
+    <div class="corr-title">Email attachment ↔ local encrypted file</div>
+    <div class="corr-detail">Customer_List.xlsx (from developer@robotnav.com) matched "Very Useful.xlsx" by content comparison. Password shared in TCP stream 3 plaintext is consistent with coordinated data handling between parties.</div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Evidence sources examined</p>
+  <div class="evidence-row">
+    <div class="evidence-item">
+      <div class="evidence-icon" style="background:#E1F5EE;"><i class="ti ti-device-desktop" style="font-size:15px; color:#0F6E56;"></i></div>
+      <div>
+        <div class="evidence-label">Exhibit A — Forensic disk image</div>
+        <div class="evidence-desc">File system analysis, keyword search, extension mismatch, deleted file recovery, timeline reconstruction</div>
+      </div>
+    </div>
+    <div class="evidence-item">
+      <div class="evidence-icon" style="background:#EEEDFE;"><i class="ti ti-settings" style="font-size:15px; color:#534AB7;"></i></div>
+      <div>
+        <div class="evidence-label">Exhibit B — NTUSER.DAT registry hive</div>
+        <div class="evidence-desc">WordWheelQuery (search terms), UserAssist (app execution count), TypedURLs (recent URLs)</div>
+      </div>
+    </div>
+    <div class="evidence-item">
+      <div class="evidence-icon" style="background:#FAEEDA;"><i class="ti ti-wifi" style="font-size:15px; color:#BA7517;"></i></div>
+      <div>
+        <div class="evidence-label">Exhibit C — PCAP network captures</div>
+        <div class="evidence-desc">TCP stream reconstruction, binary export (ZIP, PNG), plaintext credential extraction, expert info analysis</div>
+      </div>
+    </div>
+    <div class="evidence-item">
+      <div class="evidence-icon" style="background:#E6F1FB;"><i class="ti ti-device-mobile" style="font-size:15px; color:#185FA5;"></i></div>
+      <div>
+        <div class="evidence-label">Exhibit D — Mobile device</div>
+        <div class="evidence-desc">EXIF device model matching, GPS coordinate extraction, capture timestamp analysis</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Investigation capabilities demonstrated</p>
+  <div class="skills-grid">
+    <div class="skill-chip"><div class="skill-dot" style="background:#1D9E75;"></div><span class="skill-text">File system analysis</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#1D9E75;"></div><span class="skill-text">TCP stream reconstruction</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#1D9E75;"></div><span class="skill-text">Registry artefact analysis</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#7F77DD;"></div><span class="skill-text">EXIF metadata correlation</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#7F77DD;"></div><span class="skill-text">Timeline reconstruction</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#7F77DD;"></div><span class="skill-text">Deleted file recovery</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#D85A30;"></div><span class="skill-text">Hash verification</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#D85A30;"></div><span class="skill-text">Obfuscation detection</span></div>
+    <div class="skill-chip"><div class="skill-dot" style="background:#D85A30;"></div><span class="skill-text">Multi-source correlation</span></div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Tools</p>
+  <div class="tools-row">
+    <div class="tool-badge"><i class="ti ti-search" style="font-size:15px;"></i> Autopsy</div>
+    <div class="tool-badge"><i class="ti ti-wifi" style="font-size:15px;"></i> Wireshark</div>
+    <div class="tool-badge"><i class="ti ti-settings" style="font-size:15px;"></i> Registry Explorer</div>
+    <div class="tool-badge"><i class="ti ti-terminal" style="font-size:15px;"></i> The Sleuth Kit</div>
+    <div class="tool-badge"><i class="ti ti-file-text" style="font-size:15px;"></i> FTK Imager</div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Timeline — key activity window (04 Mar 2026)</p>
+  <div>
+    <div class="tl-item">
+      <div class="tl-dot-col"><div class="tl-dot" style="background:#7F77DD;"></div><div class="tl-time">17:55</div></div>
+      <div class="tl-content">
+        <span class="tl-cat cat-meta">Metadata</span>
+        <div class="tl-event">Robot arm photos captured</div>
+        <span>HUAWEI HLK-AL00 (seized device) · GPS: Cardiff, UK</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot-col"><div class="tl-dot" style="background:#185FA5;"></div><div class="tl-time">20:33</div></div>
+      <div class="tl-content">
+        <span class="tl-cat cat-fs">Filesystem</span>
+        <div class="tl-event">Robot Schematics PDF created in non-standard path</div>
+        <span>C:\Windows\Doc — concealment indicator</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot-col"><div class="tl-dot" style="background:#185FA5;"></div><div class="tl-time">20:38</div></div>
+      <div class="tl-content">
+        <span class="tl-cat cat-fs">Filesystem</span>
+        <div class="tl-event">Robot Zero.mp4 and Very Useful.xlsx created</div>
+        <span>Encrypted spreadsheet — content matches email-received Customer_List.xlsx</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot-col"><div class="tl-dot" style="background:#185FA5;"></div><div class="tl-time">20:45</div></div>
+      <div class="tl-content">
+        <span class="tl-cat cat-fs">Filesystem</span>
+        <div class="tl-event">ROBTYPE obfuscated files created</div>
+        <span>JPEG images stored under .pdf / .doc / .!! extensions</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot-col"><div class="tl-dot" style="background:#0F6E56;"></div><div class="tl-time">20:58</div></div>
+      <div class="tl-content">
+        <span class="tl-cat cat-net">Network</span>
+        <div class="tl-event">Astar.png and map.png created — network transfer follows</div>
+        <span>TCP streams: ZIP project archive + route map transmitted to 192.168.1.216</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
